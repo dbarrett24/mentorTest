@@ -1,28 +1,61 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+    Semantic HTML is writing HTML that not only affects what gets presented, but also adds meaning to what is
+    being displayed.  A common example would be an 'h1' tag which not only affects the font and weight of the
+    writing enclosed, but also indicates that the text is a headline.
 
 2. What is the box model?
-
+    Every HTML element, with it's accompanying CSS, is displayed as a box.  This box includes not only the
+    content of the element, but also its surrounding margin and padding.
+    
 3. What is the difference between IDs and Classes?
+    The two main differences between ID's and classes are that classes can be applied to many elements, while ID's
+    are to be applied only to a single element, and they are written differently, a class with a leading '.' and 
+    an id with a leading '#'.
 
 4. What does the z-index do?
+    The z-index of an element affects how elements are layered relative to one another.  For a z-index to
+    have any effect on an element, however, it must have a position attribute other than the default of static.
 
 5. Summarize what the keyword 'this' is used for?
+    The keyword this has everything to do with what we call 'context'.  It allows us to access data specific to
+    any given situation.  It allows a function, for example, to access a property from whatever is calling it.
+    This is especially important to understand when using functions like bind, call, and apply which explicitly
+    define the 'context' of a function or, in other words, tell the function what 'this' is talking about.
 
 6. What is a callback?
+    A callback is a function passed in as an argument for another function.  This not only allows for more
+    flexibility in the defining of functions, but also allows us to take advantage of asynchronous programming.
 
 7. What is a closure?
+    A closure is a function within a function that can access not only its own variables, but the variables of
+    the function enclosing it.  The reason they are so important is that they take a snapshot of the function
+    enclosing it, variables and all, and are thus allowed to facilitate asynchronous programming.
 
 8. How does prototype work?
+    The prototype is an object from which every object of a type inherits methods and properties.  One way to
+    use prototypes is to create a constructor function and use that function to create your object.  The
+    resulting object will inherit everything specified in the constructor functions.
 
 9. What is MVC?
+    The MVC stands for "Model View Controller".  This is a design pattern commonly used for tying together what a
+    user sees (the view) to the data behind the scenes (the model) using a bridge between them (the controller).
 
 10. What is the component lifecycle?
+    Many modern frameworks use components to structure an application.  These components, that can be thought of
+    as small reusable chunks of code, have different life stages that make up their 'component lifecycle'.  This
+    lifecycle can be used to perform certain actions at different stages, including when the component is created
+    and when it is destroyed.
 
 11. What is REST?
+    REST is how we normally transfer data over the internet.  It is a set of rules to be followed in the creation, access,
+    update, and deletion of this data.  The uniformity that these rules bring are beneficial to anyone who is looking
+    to share or retrieve data.
 
 12. Name three ways of getting data from the URL using express
+    Express allows you to specify endpoints that can be accessed through the URL.  In addition, you can specify parameters
+    and queries to narrow your data search.
 
 create table users (
 id serial,
@@ -33,9 +66,20 @@ email varchar(255)
 12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
 -Get all users:
+select *
+from users;
 
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+insert into users
+(name, email)
+values
+('your name', 'fake@fake.com');
 
 -Update the newly created user's name to 'Bobby Boy':
+update users
+set name = 'Bobby Boy'
+where name = 'your name';
 
 -Delete the newly updated user:
+delete from users
+where name = 'Bobby Boy';
